@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Water Seven - Iniciar sesión</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background: url("imagenes/fondo-auth.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .form-container {
+            background: #fff;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+<header class="navbar">
+
+    <div class="logo">
+        <img src="imagenes/logo.png">
+        <div><h1>Water Seven</h1></div>
+    </div>
+
+    <nav>
+        <span class="badge"><a href="index.html">Inicio</a></span> 
+        <span class="badge"><a href="comunidad.html">Comunidad</a></span> 
+        <span class="badge"><a href="chat.html">Chat</a></span>
+    </nav>
+
+    <div class="auth" id="authSection">
+        <a href="login.html"><button class="btn-outline">Iniciar sesión</button></a>
+        <a href="registro.html"><button class="btn-primary">Registrarse</button></a>
+    </div>
+</header>
+<script>
+(function(){
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (usuario) {
+        document.getElementById("authSection").innerHTML = `
+            <span style="margin-right:12px;color:#4a6b6b;">👤 ${usuario.nombre}</span>
+            <button class="btn-outline" onclick="localStorage.removeItem('usuario');location.reload()">Cerrar sesión</button>
+        `;
+    }
+})();
+</script>
+
+<form class="form-container" onsubmit="return login(event)">
+    <h2>Iniciar sesión</h2>
+    <p class="sub">Accede a tu cuenta de Water Seven</p>
+
+    <input type="email" id="correo" placeholder="Correo electrónico" required>
+    <input type="password" id="password" placeholder="Contraseña" required>
+
+    <div id="login-error" style="color:#d32f2f;font-size:13px;margin-bottom:12px;display:none;text-align:center;"></div>
+
+    <button type="submit">Entrar</button>
+</form>
+
+<script src="js/api.js"></script>
+<script>
+async function login(event) {
+    event.preventDefault();
+    const correo = document.getElementById("correo").value;
+    const password = document.getElementById("password").value;
+    const errorDiv = document.getElementById("login-error");
+
+    try {
+        const res = await api.login(correo, password);
+
+        if (res.error) {
+            errorDiv.textContent = res.error;
+            errorDiv.style.display = "block";
+        } else {
+            localStorage.setItem("usuario", JSON.stringify(res.usuario));
+            window.location.href = "index.html";
+        }
+    } catch (e) {
+        errorDiv.textContent = "Error de conexión con el servidor";
+        errorDiv.style.display = "block";
+    }
+}
+
+(function(){
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (usuario) window.location.href = "index.html";
+})();
+</script>
+</body>
+</html>

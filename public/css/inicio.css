@@ -1,0 +1,138 @@
+.problematica {
+    padding: 60px 40px;
+    text-align: center;
+    background: #eaf4f4;
+}
+
+.problematica h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #2d4f4f;
+}
+
+.problematica .subtitle {
+    color: #5b9999;
+    margin-bottom: 40px;
+}
+
+.cifras-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto 50px;
+}
+
+.cifra-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(61, 173, 174, 0.12);
+    text-align: left;
+}
+
+.cifra-card i {
+    font-size: 32px;
+    color: #3dadae;
+    margin-bottom: 15px;
+}
+
+.cifra-card h3 {
+    font-size: 28px;
+    color: #2d4f4f;
+    margin-bottom: 10px;
+}
+
+.cifra-card p {
+    color: #4d7a7a;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.cifra-card .fuente {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #7daaaa;
+    font-style: italic;
+}
+
+.impacto-imagenes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.impacto-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(61, 173, 174, 0.12);
+}
+
+.impacto-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.impacto-item p {
+    padding: 12px 15px;
+    background: white;
+    font-size: 14px;
+    color: #2d4f4f;
+}
+
+.mision {
+    padding: 60px 40px;
+    background: #3dadae;
+    color: white;
+    text-align: center;
+}
+
+.mision-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mision h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.mision p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e0f4f4;
+    margin-bottom: 40px;
+}
+
+.mision-stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.mision-stats div {
+    text-align: center;
+}
+
+.mision-stats i {
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.mision-stats h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.mision-stats p {
+    font-size: 13px;
+    color: #d4f0f0;
+    margin-bottom: 0;
+}
