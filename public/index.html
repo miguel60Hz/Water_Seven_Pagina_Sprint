@@ -2,9 +2,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Seven</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -20,6 +22,10 @@
         <span class="badge"><a href="comunidad.html">Comunidad</a></span> 
         <span class="badge"><a href="chat.html">Chat</a></span>
     </nav>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
 
     <div class="auth" id="authSection">
         <a href="login.html"><button class="btn-outline">Iniciar sesión</button></a>
@@ -53,7 +59,7 @@
                 <p>Sin acceso</p>
             </div>
             <div>
-                <h3>3.5B</h3>
+                <h3>3.500M</h3>
                 <p>Sin saneamiento</p>
             </div>
             <div>
@@ -155,16 +161,6 @@
     </div>
 </section>
 
-<script>
-(function(){
-    const usuario = JSON.parse(localStorage.getItem("usuario"));
-    if (usuario) {
-        document.getElementById("authSection").innerHTML = `
-            <span style="margin-right:12px;color:#4a6b6b;"> ${usuario.nombre}</span>
-            <button class="btn-outline" onclick="localStorage.removeItem('usuario');location.reload()">Cerrar sesión</button>
-        `;
-    }
-})();
-</script>
+<script src="js/nav.js"></script>
 </body>
 </html>

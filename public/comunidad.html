@@ -2,179 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Seven - Comunidad</title>
     <link rel="stylesheet" href="css/styles.css">
-    <style>.comunidad {
-    display: flex;
-    width: 90%;
-    margin: 40px auto;
-    gap: 30px;
-}
-
-.feed {
-    width: 70%;
-}
-
-.publicar {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    padding: 12px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    gap: 10px;
-    box-shadow: 0 4px 10px rgba(61, 173, 174, 0.12);
-}
-
-.publicar input {
-    flex: 1;
-    border: none;
-    outline: none;
-}
-
-.btn-publicar {
-    background: #5ec4c5;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.btn-publicar:hover {
-    background: #4ab0b1;
-}
-
-.avatar {
-    background: #c8e0e0;
-    padding: 10px;
-    border-radius: 50%;
-}
-
-.card {
-    display: flex;
-    gap: 15px;
-    padding: 18px;
-    border-radius: 15px;
-    margin-bottom: 18px;
-}
-
-.card.azul {
-    background: #dff2f2;
-}
-
-.card.roja {
-    background: #fae0e0;
-}
-
-.icono {
-    font-size: 28px;
-}
-
-.top {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.nombre {
-    font-weight: bold;
-}
-
-.tiempo {
-    font-size: 12px;
-    color: #7daaaa;
-}
-
-.etiqueta {
-    font-size: 12px;
-    padding: 4px 8px;
-    border-radius: 10px;
-}
-
-.etiqueta.azul {
-    background: #c8ecf0;
-    color: #3d8a8c;
-}
-
-.etiqueta.roja {
-    background: #f0c8c8;
-    color: #8c4a4a;
-}
-
-.ubicacion {
-    font-size: 12px;
-    color: #7daaaa;
-}
-
-.sidebar {
-    width: 30%;
-}
-
-.box {
-    background: #fff;
-    padding: 18px;
-    border-radius: 15px;
-    margin-bottom: 18px;
-    box-shadow: 0 4px 10px rgba(61, 173, 174, 0.12);
-}
-
-.box.verde {
-    background: #cce8e0;
-}
-
-.comentario-input {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.comentario-input input {
-    flex: 1;
-    padding: 6px 10px;
-    border: 1px solid #c8e0e0;
-    border-radius: 8px;
-    outline: none;
-}
-
-.comentario-input button {
-    background: #5ec4c5;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.comentario-input button:hover {
-    background: #4ab0b1;
-}
-
-.comentarios-lista {
-    margin-top: 8px;
-    font-size: 13px;
-}
-
-.comentarios-lista p {
-    margin: 3px 0;
-    color: #4d7a7a;
-}
-
-.comentar-btn {
-    background: none;
-    border: none;
-    color: #3dadae;
-    cursor: pointer;
-    font-size: 12px;
-    margin-top: 6px;
-    padding: 0;
-}
-</style>
-
+    <link rel="stylesheet" href="css/responsive.css">
+    
 </head>
 <body>
 <header class="navbar">
-
+    <link rel="stylesheet" href="css/styles.css">
     <div class="logo">
         <img src="imagenes/logo.png">
         <div><h1>Water Seven</h1></div>
@@ -185,6 +21,10 @@
         <span class="badge"><a href="comunidad.html">Comunidad</a></span> 
         <span class="badge"><a href="chat.html">Chat</a></span>
     </nav>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
 
     <div class="auth" id="authSection">
         <a href="login.html"><button class="btn-outline">Iniciar sesión</button></a>
@@ -202,7 +42,7 @@
     <div class="publicar">
       <div class="avatar"></div>
       <input type="text" id="inputMensaje" placeholder="¿Qué está pasando en tu comunidad?">
-      <select id="tipoPublicacion" style="padding:6px;border-radius:8px;border:1px solid #ddd;">
+      <select id="tipoPublicacion" class="tipo-select">
           <option value="general">General</option>
           <option value="reporte"> Nueva fuente</option>
           <option value="alerta">Alerta</option>
@@ -239,17 +79,7 @@
 
 </div>
 
-<script>
-(function(){
-    const u = JSON.parse(localStorage.getItem("usuario"));
-    if (u) {
-        document.getElementById("authSection").innerHTML = `
-            <span style="margin-right:12px;color:#4a6b6b;">👤 ${u.nombre}</span>
-            <button class="btn-outline" onclick="localStorage.removeItem('usuario');location.reload()">Cerrar sesión</button>
-        `;
-    }
-})();
-</script>
+<script src="js/nav.js"></script>
 <script src="js/api.js"></script>
 <script>
 let usuario = JSON.parse(localStorage.getItem("usuario"));

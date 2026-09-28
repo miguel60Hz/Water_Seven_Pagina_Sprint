@@ -2,63 +2,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Seven - Chat</title>
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        .page h1 {
-            text-align: center;
-        }
-
-        .chat-box {
-            width: 80%;
-            height: 350px;
-            margin: 20px auto;
-            padding: 10px;
-            border: 1px solid #c8e0e0;
-            border-radius: 5px;
-            overflow-y: auto;
-            background-color: #f0f6f6;
-        }
-
-        .chat-input {
-            width: 70%;
-            padding: 10px;
-            margin-left: 10%;
-            border: 1px solid #c8e0e0;
-            border-radius: 8px;
-            outline: none;
-        }
-
-        .chat-input:focus {
-            border-color: #3dadae;
-        }
-
-        button {
-            padding: 10px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-
-        .chat-box p {
-            margin: 5px 0;
-        }
-
-        .chat-box p strong {
-            color: #3dadae;
-        }
-
-        .btn-enviar {
-            background: #5ec4c5;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 18px;
-        }
-
-        .btn-enviar:hover {
-            background: #4ab0b1;
-        }
-    </style>
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="/public/css/chat.css">
 </head>
 <body>
 
@@ -75,6 +23,10 @@
         <span class="badge"><a href="chat.html">Chat</a></span>
     </nav>
 
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+
     <div class="auth" id="authSection">
         <a href="login.html"><button class="btn-outline">Iniciar sesión</button></a>
         <a href="registro.html"><button class="btn-primary">Registrarse</button></a>
@@ -86,23 +38,13 @@
 
     <div class="chat-box" id="chatBox"></div>
 
-    <div style="text-align:center;">
+    <div class="chat-form">
         <input id="mensaje" class="chat-input" placeholder="Mensaje...">
         <button class="btn-enviar" onclick="enviarMensaje()">Enviar</button>
     </div>
 </section>
 
-<script>
-(function(){
-    const u = JSON.parse(localStorage.getItem("usuario"));
-    if (u) {
-        document.getElementById("authSection").innerHTML = `
-            <span style="margin-right:12px;color:#4a6b6b;">👤 ${u.nombre}</span>
-            <button class="btn-outline" onclick="localStorage.removeItem('usuario');location.reload()">Cerrar sesión</button>
-        `;
-    }
-})();
-</script>
+<script src="js/nav.js"></script>
 <script src="js/api.js"></script>
 <script>
 let usuario = JSON.parse(localStorage.getItem("usuario"));

@@ -2,8 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Seven - Iniciar sesión</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <style>
         body {
             background: url("imagenes/fondo-auth.jpg") no-repeat center center fixed;
@@ -31,22 +33,16 @@
         <span class="badge"><a href="chat.html">Chat</a></span>
     </nav>
 
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+
     <div class="auth" id="authSection">
         <a href="login.html"><button class="btn-outline">Iniciar sesión</button></a>
         <a href="registro.html"><button class="btn-primary">Registrarse</button></a>
     </div>
 </header>
-<script>
-(function(){
-    const usuario = JSON.parse(localStorage.getItem("usuario"));
-    if (usuario) {
-        document.getElementById("authSection").innerHTML = `
-            <span style="margin-right:12px;color:#4a6b6b;">👤 ${usuario.nombre}</span>
-            <button class="btn-outline" onclick="localStorage.removeItem('usuario');location.reload()">Cerrar sesión</button>
-        `;
-    }
-})();
-</script>
+<script src="js/nav.js"></script>
 
 <form class="form-container" onsubmit="return login(event)">
     <h2>Iniciar sesión</h2>
